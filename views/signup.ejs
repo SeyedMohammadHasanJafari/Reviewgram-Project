@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/public/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/public/css/nouislider.min.css">
+    <link rel="stylesheet" href="/public/css/ionicons.min.css">
+    <link rel="stylesheet" href="/public/css/plyr.css">
+    <link rel="stylesheet" href="/public/css/photoswipe.css">
+    <link rel="stylesheet" href="/public/css/default-skin.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+
+    <title>
+        <%= subject %>
+    </title>
+
+</head>
+
+<body class="body">
+
+    <div class="sign section--bg" data-bg="/public/img/section/section.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sign__content">
+                        <!-- registration form -->
+                        <form action="/auth/signup" method="post" class="sign__form">
+                            <a href="/pages" class="sign__logo">
+                                <img src="/public/img/logo.svg" alt="">
+                            </a>
+
+                            <div class="sign__group">
+                                <input name="nickname" type="text" class="sign__input" placeholder="NickName">
+                            </div>
+
+                            <div class="sign__group">
+                                <input name="email" type="text" class="sign__input" placeholder="Email" required>
+                            </div>
+
+                            <div class="sign__group">
+                                <input name="password" type="password" class="sign__input" placeholder="Password" required>
+                            </div>
+
+                            <div class="sign__group sign__group--checkbox">
+                                <input id="agreed" name="agreed" type="checkbox" checked="checked">
+                                <label for="agreed">I agree to the <a href="#">Privacy Policy</a></label>
+                            </div>
+
+                            <button class="sign__btn" type="submit">Sign up</button>
+
+                            <span class="sign__text">Already have an account? <a href="/pages/login">Sign in!</a></span>
+                        </form>
+                        <!-- registration form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/js/owl.carousel.min.js"></script>
+    <script src="/public/js/jquery.mousewheel.min.js"></script>
+    <script src="/public/js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="/public/js/wNumb.js"></script>
+    <script src="/public/js/nouislider.min.js"></script>
+    <script src="/public/js/plyr.min.js"></script>
+    <script src="/public/js/jquery.morelines.min.js"></script>
+    <script src="/public/js/photoswipe.min.js"></script>
+    <script src="/public/js/photoswipe-ui-default.min.js"></script>
+    <script src="/public/js/main.js"></script>
+</body>
+
+</html>

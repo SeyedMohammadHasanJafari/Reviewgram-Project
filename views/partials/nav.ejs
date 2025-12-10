@@ -1,0 +1,93 @@
+<header class="header">
+    <div class="header__wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__content">
+                        <!-- header logo -->
+                        <a href="/pages" class="header__logo">
+                            <img src="/public/img/logo.svg" alt="">
+                        </a>
+                        <!-- end header logo -->
+
+                        <!-- header nav -->
+                        <ul class="header__nav">
+                            <li class="header__nav-item">
+                                <a href="/pages" class="header__nav-link">Home</a>
+                            </li>
+
+                            <li class="header__nav-item">
+                                <a href="/pages/feed" class="header__nav-link">Feed</a>
+                            </li>
+
+                            <li class="header__nav-item">
+                                <a href="/pages/friends" class="header__nav-link">Friends</a>
+                            </li>
+
+                            <!-- dropdown -->
+                             <% if(isAdmin) { %>
+                                <li class="header__nav-item">
+                                    <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+    
+                                    <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuAdmin">
+                                        <li><a href="/admin">Home</a></li>
+                                        <li><a href="/admin/movie/add">Add Movie</a></li>
+                                        <li><a href="/admin/users">User Managment</a></li>
+                                        <li><a href="/admin/reviews">Review Managment</a></li>
+                                    </ul>
+                                </li>
+                            <% } %>
+                            <!-- end dropdown -->
+
+                        </ul>
+                        <!-- end header nav -->
+
+                        <!-- header auth -->
+                        <div class="header__auth">
+                            <button class="header__search-btn" type="button">
+                                <i class="icon ion-ios-search"></i>
+                            </button>
+
+                            <% if(isLogin){ %>
+                                <a href="/pages/logout" class="header__sign-in">
+                                    <i class="icon ion-ios-log-in"></i>
+                                    <span>log out</span>
+                                </a>
+                            <% } else { %>
+                                <a href="/pages/login" class="header__sign-in">
+                                    <i class="icon ion-ios-log-in"></i>
+                                    <span>sign in/up</span>
+                                </a>
+                            <% } %>
+                        </div>
+                        <!-- end header auth -->
+
+                        <!-- header menu btn -->
+                        <button class="header__btn" type="button">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <!-- end header menu btn -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header search -->
+    <form action="#" class="header__search">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__search-content">
+                        <input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+
+                        <button type="button">search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- end header search -->
+</header>
