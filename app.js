@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.route.js";
 import movieRoutes from "./routes/movie.route.js";
 import reviewRoutes from "./routes/review.route.js";
 import pagesRoutes from "./routes/pages.route.js";
+import adminRoutes from './routes/admin.route.js';
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use("/movie", movieRoutes);
 app.use("/review", reviewRoutes);
 app.use("/pages", pagesRoutes);
 app.use("/public", express.static("public"));
+app.use('/admin', adminRoutes);
 
 // فقط در محیط غیر تست به دیتابیس وصل شو و سرور را اجرا کن
 if (process.env.NODE_ENV !== "test") {
