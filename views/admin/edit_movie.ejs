@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet"> 
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/public/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/public/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="/public/css/nouislider.min.css">
+	<link rel="stylesheet" href="/public/css/ionicons.min.css">
+	<link rel="stylesheet" href="/public/css/plyr.css">
+	<link rel="stylesheet" href="/public/css/photoswipe.css">
+	<link rel="stylesheet" href="/public/css/default-skin.css">
+	<link rel="stylesheet" href="/public/css/main.css">
+
+	<title>
+        <%= subject %> Edit Movie
+    </title>
+
+</head>
+<body class="body">
+
+	<div class="sign section--bg" data-bg="/public/img/section/section.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="sign__content">
+						<!-- add movie form -->
+                        <form action="/admin/movie/edit/save" method="post" class="form">
+                            <input name="name" type="text" class="form__input" placeholder="Title" value="<%= movie.name %>">
+                            <div class="filter__items" style="margin-top: 10px; margin-bottom: 10px;">
+                                <div class="filter__item" id="filter__genre">
+                                    <span class="filter__item-label">GENRE:</span>
+                                    <div class="filter__item-btn dropdown-toggle" role="navigation" id="filter-genre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <input name="genre" type="text" value="<%= movie.genre %>" style="margin-right: 0;" readonly>
+                                        <span></span>
+                                    </div>
+    
+                                    <ul class="filter__item-menu dropdown-menu scrollbar-dropdown" aria-labelledby="filter-genre">
+                                        <li>Action/Adventure</li>
+                                        <li>Animals</li>
+                                        <li>Animation</li>
+                                        <li>Biography</li>
+                                        <li>Comedy</li>
+                                        <li>Cooking</li>
+                                        <li>Dance</li>
+                                        <li>Documentary</li>
+                                        <li>Drama</li>
+                                        <li>Education</li>
+                                        <li>Entertainment</li>
+                                        <li>Family</li>
+                                        <li>Fantasy</li>
+                                        <li>History</li>
+                                        <li>Horror</li>
+                                        <li>Independent</li>
+                                        <li>International</li>
+                                        <li>Kids</li>
+                                        <li>Kids & Family</li>
+                                        <li>Medical</li>
+                                        <li>Military/War</li>
+                                        <li>Music</li>
+                                        <li>Musical</li>
+                                        <li>Mystery/Crime</li>
+                                        <li>Nature</li>
+                                        <li>Paranormal</li>
+                                        <li>Politics</li>
+                                        <li>Racing</li>
+                                        <li>Romance</li>
+                                        <li>Sci-Fi/Horror</li>
+                                        <li>Science</li>
+                                        <li>Science Fiction</li>
+                                        <li>Science/Nature</li>
+                                        <li>Spanish</li>
+                                        <li>Travel</li>
+                                        <li>Western</li>
+                                    </ul>
+                                </div>
+
+                                <div class="filter__item" id="filter__year">      
+                                    <input name="release_year" type="text" class="form__input" placeholder="Release Year" value="<%= movie.release_year %>">
+                                </div>
+
+                            </div>
+                            
+                            <input name="image" type="text" class="form__input" placeholder="Poster (Base64)" value="<%= movie.image %>">
+                            <textarea name="description" class="form__textarea" placeholder="Description" ><%= movie.description %></textarea>
+                            <input name="movieId" type="hidden" value="<%= movie._id %>">
+                            <button type="submit" class="form__btn">Edit</button>
+                        </form>
+						<!-- add movie form -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script src="/public/js/jquery-3.3.1.min.js"></script>
+	<script src="/public/js/bootstrap.bundle.min.js"></script>
+	<script src="/public/js/owl.carousel.min.js"></script>
+	<script src="/public/js/jquery.mousewheel.min.js"></script>
+	<script src="/public/js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="/public/js/wNumb.js"></script>
+	<script src="/public/js/nouislider.min.js"></script>
+	<script src="/public/js/plyr.min.js"></script>
+	<script src="/public/js/jquery.morelines.min.js"></script>
+	<script src="/public/js/photoswipe.min.js"></script>
+	<script src="/public/js/photoswipe-ui-default.min.js"></script>
+	<script src="/public/js/main.js"></script>
+</body>
+
+</html>
