@@ -12,6 +12,7 @@ import friendshipRoutes from "./routes/friendship.route.js";
 
 const app = express();
 
+// نکته مهم: اینجا اولویت با متغیر محیطی (داکر) است
 const DATABASE_URL =
   process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/movie_review";
 const PORT = 5000;
@@ -36,17 +37,28 @@ app.use("/public", express.static("public"));
 app.use("/admin", adminRoutes);
 app.use("/friendship", friendshipRoutes);
 
+// فقط اگر در محیط تست نیستیم، دیتابیس وصل شود
 if (process.env.NODE_ENV !== "test") {
-  mongoose.connect(DATABASE_URL);
+  // تنظیمات دیتابیس
   mongoose.set("strictQuery", true);
 
-  const db = mongoose.connection;
-  db.on("error", (error) => console.error(error));
-  db.once("open", () => console.log("Connected to Database"));
+  // لاگ کردن آدرس دیتابیس (برای دیباگ کردن داکر حیاتی است)
+  console.log("---------------------------------------------------");
+  console.log("🚀 Attempting to connect to MongoDB at:", DATABASE_URL);
+  console.log("---------------------------------------------------");
 
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+  mongoose
+    .connect(DATABASE_URL)
+    .then(() => {
+      console.log("✅ Connected to Database Successfully");
+      app.listen(PORT, () => {
+        console.log(`✅ Server is running on port ${PORT}`);
+      });
+    })
+    .catch((error) => {
+      console.error("❌ FAILED to connect to Database:", error.message);
+      console.error("Full Error:", error);
+    });
 }
 
 export { app };

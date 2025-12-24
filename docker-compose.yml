@@ -5,8 +5,9 @@ services:
   mongo:
     image: mongo:6.0
     container_name: reviewgram_db
+    restart: always
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongo_data:/data/db
 
@@ -14,14 +15,14 @@ services:
   app:
     build: .
     container_name: reviewgram_app
+    restart: always
     ports:
       - "5000:5000"
     environment:
+      - DATABASE_URL=mongodb://mongo:27017/movie_review
       - NODE_ENV=production
-        - DATABASE_URL=mongodb://mongo:27017/movie_review
     depends_on:
       - mongo
 
-# volume
 volumes:
   mongo_data:
