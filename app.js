@@ -12,7 +12,6 @@ import friendshipRoutes from "./routes/friendship.route.js";
 
 const app = express();
 
-// نکته مهم: اینجا اولویت با متغیر محیطی (داکر) است
 const DATABASE_URL =
   process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/movie_review";
 const PORT = 5000;
@@ -37,12 +36,9 @@ app.use("/public", express.static("public"));
 app.use("/admin", adminRoutes);
 app.use("/friendship", friendshipRoutes);
 
-// فقط اگر در محیط تست نیستیم، دیتابیس وصل شود
 if (process.env.NODE_ENV !== "test") {
-  // تنظیمات دیتابیس
   mongoose.set("strictQuery", true);
 
-  // لاگ کردن آدرس دیتابیس (برای دیباگ کردن داکر حیاتی است)
   console.log("---------------------------------------------------");
   console.log("🚀 Attempting to connect to MongoDB at:", DATABASE_URL);
   console.log("---------------------------------------------------");
