@@ -71,11 +71,12 @@
 								<div class="price__item"><span>Email: <%= users[i].email %></span></div>
 								<form action="/admin/users/edit" method="post" style="width: 100%;">
 									<button class="price__btn" type="submit">Edit</button>
-									<input type="hidden" name="user_id" value=<%=u sers[i]._id %> >
+									<input type="hidden" name="user_id" value="<%= users[i]._id %>">
 								</form>
+
 								<form action="/admin/users/delete" method="post" style="width: 100%;">
 									<button class="price__btn" type="submit">Delete</button>
-									<input type="hidden" name="user_id" value=<%=u sers[i]._id %> >
+									<input type="hidden" name="user_id" value="<%= users[i]._id %>">
 								</form>
 							</div>
 						</div>

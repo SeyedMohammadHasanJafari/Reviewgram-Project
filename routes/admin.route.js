@@ -25,14 +25,17 @@ router.get("/", verifyAdminToken, async (req, res) => {
 router.get("/users", verifyAdminToken, async (req, res) => {
   try {
     const userId = req.userId;
-    const isLogin = userId ? true : false;
+    const user = await User.findById(userId);
+    const isLogin = !!userId;
     const isAdmin = true;
     const users = await User.find({ role: "user" });
+
     res.render("./admin/users", {
       subject: "MovieReview - ",
-      users: users,
-      isLogin: isLogin,
-      isAdmin: isAdmin,
+      users,
+      user,
+      isLogin,
+      isAdmin,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
